@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qur'an Memorization Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>DASTIA ACADEMY</h1>
+    <h1>Student progress Tracker</h1>
+
+    <form id="progressForm">
+      <input type="text" id="studentName" placeholder="Student Name" required />
+
+      <select id="surah" required>
+        <option value="">Select Surah</option>
+      </select>
+
+      <input type="number" id="fromAyah" placeholder="From Ayah" min="1" required />
+      <input type="number" id="toAyah" placeholder="To Ayah" min="1" required />
+
+      <select id="grade" required>
+        <option value="">Select Grade</option>
+        <option value="Excellent">🌟 Excellent</option>
+        <option value="Very Good">✅ Very Good</option>
+        <option value="Good">🙂 Good</option>
+        <option value="Poor">⚠️ Poor</option>
+      </select>
+
+      <input type="number" id="weeklyGoal" placeholder="Weekly Goal (optional)" />
+
+      <button type="submit">Add Progress</button>
+    </form>
+
+    <div id="studentsList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
