@@ -234,4 +234,14 @@ function generatePDF() {
   };
 }
 
+document.getElementById("clearProgressBtn").addEventListener("click", () => {
+  const confirmClear = confirm("Are you sure you want to clear all students' progress for a new week?");
+  if (!confirmClear) return;
+
+  students = [];
+  saveToLocal();
+  renderStudents();
+});
+
+
 

@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  max-width: 700px;
+  max-width: 500px;
   background: white;
   padding: 2rem;
   margin: auto;
@@ -177,21 +177,47 @@ button {
   background: #c82333;
 }
 
-/* Mobile Responsive */
-@media (max-width: 600px) {
+
+.header-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .logo-title {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   .logo-title h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .header-actions {
     flex-direction: column;
-    align-items: stretch;
+    gap: 0.rem;
   }
 
-  .header-actions button,
+  .header-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .header-buttons button,
   .teacher-input {
     width: 100%;
+    font-size: 0.95rem;
   }
 }
 
+
+#teacherName {
+  
+}
 

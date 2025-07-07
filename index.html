@@ -12,19 +12,21 @@
 </head>
 <body>
   
-  <div class="container">
-    
-    <header class="tracker-header">
+ <header class="tracker-header">
   <div class="logo-title">
-    <img src="https://i.ibb.co/Xrv6hSRQ/dastia-logo.jpg" alt="Daarusalam Logo" class="logo">
+    <img src="https://i.ibb.co/Xrv6hSRQ/dastia-logo.jpg" alt="Daarusalam Logo" class="logo" />
     <h1>Progress Tracker</h1>
   </div>
 
   <div class="header-actions">
     <input type="text" id="teacherName" placeholder="Enter Teacher Name" class="teacher-input" />
-    <button onclick="downloadPDF()">📤 Download PDF</button>
-    <button id="clearProgressBtn" class="clear-btn">🧹 Clear Weekly Progress</button>
+    <div class="header-buttons">
+      <button onclick="downloadPDF()">📤 Download PDF</button>
+      <button id="clearProgressBtn" class="clear-btn">🧹 Clear Weekly Progress</button>
+    </div>
   </div>
+</header>
+
 </header>
   
 
