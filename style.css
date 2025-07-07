@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  max-width: 500px;
+  max-width: 700px;
   background: white;
   padding: 2rem;
   margin: auto;
@@ -31,7 +31,7 @@ input, select {
 }
 
 button {
-  background: #330e55;
+  background: #28a745;
   color: white;
   padding: 0.8rem;
   border: none;
@@ -45,7 +45,7 @@ button {
   margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 8px;
-  border-left: 5px solid #330e55;
+  border-left: 5px solid #28a745;
 }
 
 .progress-bar {
@@ -58,8 +58,7 @@ button {
 
 .progress-fill {
   height: 100%;
-  background: #330e55;
-  background-color: #3e6d49;
+  background-color: #28a745;
   text-align: center;
   color: white;
   line-height: 20px;
@@ -109,7 +108,7 @@ button {
 }
 
 .tracker-header {
-  background: #330e55;
+  background: #2e0c4e;
   color: white;
   padding: 1rem;
   border-radius: 10px;
@@ -177,47 +176,19 @@ button {
   background: #c82333;
 }
 
-
-.header-buttons {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0.2rem;
-  }
-
-  .logo-title {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
+/* Mobile Responsive */
+@media (max-width: 600px) {
   .logo-title h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .header-actions {
     flex-direction: column;
-    gap: 0.rem;
+    align-items: stretch;
   }
 
-  .header-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .header-buttons button,
+  .header-actions button,
   .teacher-input {
     width: 100%;
-    font-size: 0.95rem;
   }
 }
-
-
-#teacherName {
-  height: 5px;
-}
-
