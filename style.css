@@ -31,7 +31,7 @@ input, select {
 }
 
 button {
-  background: #28a745;
+  background: #330e55;
   color: white;
   padding: 0.8rem;
   border: none;
@@ -45,7 +45,7 @@ button {
   margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 8px;
-  border-left: 5px solid #28a745;
+  border-left: 5px solid #330e55;
 }
 
 .progress-bar {
@@ -58,7 +58,8 @@ button {
 
 .progress-fill {
   height: 100%;
-  background-color: #28a745;
+  background: #330e55;
+  background-color: #3e6d49;
   text-align: center;
   color: white;
   line-height: 20px;
@@ -106,3 +107,91 @@ button {
 #clearProgressBtn:hover {
   background-color: #c82333;
 }
+
+.tracker-header {
+  background: #330e55;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-title img.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: white;
+  padding: 2px;
+}
+
+.logo-title h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.teacher-input {
+  flex: 1 1 200px;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.header-actions button {
+  background: white;
+  color: #28a745;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.header-actions button:hover {
+  background: #f1f1f1;
+}
+
+.clear-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.clear-btn:hover {
+  background: #c82333;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .logo-title h1 {
+    font-size: 1.2rem;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-actions button,
+  .teacher-input {
+    width: 100%;
+  }
+}
+
+

@@ -13,8 +13,20 @@
 <body>
   
   <div class="container">
-    <h1>DASTIA ACADEMY</h1>
-    <h1>Student progress Tracker</h1>
+    
+    <header class="tracker-header">
+  <div class="logo-title">
+    <img src="https://i.ibb.co/Xrv6hSRQ/dastia-logo.jpg" alt="Daarusalam Logo" class="logo">
+    <h1>Progress Tracker</h1>
+  </div>
+
+  <div class="header-actions">
+    <input type="text" id="teacherName" placeholder="Enter Teacher Name" class="teacher-input" />
+    <button onclick="downloadPDF()">📤 Download PDF</button>
+    <button id="clearProgressBtn" class="clear-btn">🧹 Clear Weekly Progress</button>
+  </div>
+</header>
+  
 
     <form id="progressForm">
       <input type="text" id="studentName" placeholder="Student Name" required />
@@ -41,19 +53,6 @@
 
     <div id="studentsList"></div>
   </div>
-<form id="progressForm">
-  <label for="teacherName">Teacher's Name:</label>
-  <input type="text" id="teacherName" placeholder="Enter your name" required>
-  <button id="clearProgressBtn" style="background:#dc3545; color:white; margin-top:1rem;">Clear Weekly Progress</button>
-
-
-  <!-- existing fields -->
-  <!-- ... -->
-</form>
-
-<!-- Add a button to download PDF -->
-<button onclick="downloadPDF()">Download Report PDF</button>
-
 <script>
 // Your existing JavaScript...
 
