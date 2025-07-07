@@ -91,3 +91,18 @@ button {
   color: white;
   background: #dc3545;
 }
+
+#clearProgressBtn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#clearProgressBtn:hover {
+  background-color: #c82333;
+}
