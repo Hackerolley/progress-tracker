@@ -178,3 +178,60 @@ form.addEventListener("submit", (e) => {
 });
 
 renderStudents();
+
+function generatePDF() {
+  const teacherName = document.getElementById("teacherName").value.trim();
+  if (!teacherName) {
+    alert("Please enter the teacher's name.");
+    return;
+  }
+
+  const doc = new jsPDF();
+  const logoUrl = "https://i.ibb.co/Xrv6hSRQ/dastia-logo.jpg";
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.src = logoUrl;
+
+  img.onload = function () {
+    // Header
+    doc.addImage(img, "JPEG", 10, 10, 30, 30); // X, Y, Width, Height
+    doc.setFontSize(16);
+    doc.text("Weekly Progress Report", 50, 20);
+    doc.setFontSize(12);
+    doc.text("Daarusalam Academy", 50, 28);
+    doc.text(`Teacher: ${teacherName}`, 50, 36);
+    doc.text(`Date: ${new Date().toLocaleDateString()}`, 50, 44);
+
+    let y = 60;
+
+    students.forEach((s, index) => {
+      const percent = ((s.ayahMemorized / surahs[s.surah]) * 100).toFixed(2);
+      const goalStatus = s.weeklyGoal
+        ? `Goal: ${s.weeklyGoal} ayahs - ${s.ayahMemorized >= s.weeklyGoal ? "✅" : "❌"}`
+        : "No Goal Set";
+
+      doc.setFontSize(11);
+      doc.text(
+        `${index + 1}. ${s.name} | ${s.surah}: Ayah ${s.fromAyah} - ${s.toAyah} (${s.ayahMemorized} ayahs)`,
+        10,
+        y
+      );
+      y += 6;
+      doc.text(`   Grade: ${s.grade} | Progress: ${percent}% | ${goalStatus}`, 10, y);
+      y += 10;
+
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+    });
+
+    doc.save("progress_report.pdf");
+  };
+
+  img.onerror = function () {
+    alert("Logo failed to load. Please check the URL or try another image.");
+  };
+}
+
+

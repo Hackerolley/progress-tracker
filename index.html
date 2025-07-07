@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Qur'an Memorization Tracker</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
 </head>
 <body>
+  
   <div class="container">
     <h1>DASTIA ACADEMY</h1>
     <h1>Student progress Tracker</h1>
@@ -36,6 +41,66 @@
 
     <div id="studentsList"></div>
   </div>
+<form id="progressForm">
+  <label for="teacherName">Teacher's Name:</label>
+  <input type="text" id="teacherName" placeholder="Enter your name" required>
+
+  <!-- existing fields -->
+  <!-- ... -->
+</form>
+
+<!-- Add a button to download PDF -->
+<button onclick="downloadPDF()">Download Report PDF</button>
+
+<script>
+// Your existing JavaScript...
+
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  const teacherName = document.getElementById("teacherName").value || "[Name]";
+  const date = new Date().toLocaleDateString();
+
+  doc.setFontSize(16);
+  doc.text("Weekly Progress Report for Daarusalam Academy", 105, 20, { align: "center" });
+  doc.setFontSize(12);
+  doc.text(`Date: ${date}`, 14, 30);
+  doc.text(`Teacher: ${teacherName}`, 14, 38);
+
+  // Placeholder for logo
+  doc.setDrawColor(0);
+  doc.rect(160, 10, 30, 30); // box to indicate logo area
+  doc.setFontSize(10);
+  doc.text("Logo Here", 175, 28, { align: "center" });
+
+  const tableData = students.map(s => {
+    const percent = ((s.ayahMemorized / surahs[s.surah]) * 100).toFixed(2);
+    return [
+      s.name,
+      s.surah,
+      s.fromAyah,
+      s.toAyah,
+      s.ayahMemorized,
+      s.grade,
+      s.weeklyGoal || '-',
+      `${percent}%`
+    ];
+  });
+
+  doc.autoTable({
+    startY: 50,
+    head: [["Name", "Surah", "From", "To", "Memorized", "Grade", "Goal", "% Complete"]],
+    body: tableData,
+    theme: 'grid',
+    styles: { fontSize: 10 },
+    headStyles: { fillColor: [40, 167, 69] }
+  });
+
+  doc.save("Daarusalam_Academy_Report.pdf");
+}
+</script>
+
 
   <script src="script.js"></script>
 </body>
